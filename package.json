@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/Gabrielmaguna00/TP-N-2-SK-Nodejs/issues"
   },
-  "homepage": "https://github.com/Gabrielmaguna00/TP-N-2-SK-Nodejs#readme"
+  "homepage": "https://github.com/Gabrielmaguna00/TP-N-2-SK-Nodejs#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.19"
+  }
 }
