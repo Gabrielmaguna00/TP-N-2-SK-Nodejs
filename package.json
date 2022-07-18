@@ -1,0 +1,19 @@
+{
+  "name": "tpn2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabrielmaguna00/TP-N-2-SK-Nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gabrielmaguna00/TP-N-2-SK-Nodejs/issues"
+  },
+  "homepage": "https://github.com/Gabrielmaguna00/TP-N-2-SK-Nodejs#readme"
+}
