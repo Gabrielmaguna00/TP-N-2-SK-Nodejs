@@ -31,7 +31,6 @@ create table Products (
   id int not null auto_increment,
   name varchar(100) not null,
   price int not null,
-  stock int not null,
   category_id int not null,
   primary key (id),
   foreign key (category_id) references Categories(id)
