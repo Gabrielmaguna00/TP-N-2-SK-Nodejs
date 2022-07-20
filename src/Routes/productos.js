@@ -29,8 +29,13 @@ router.get("/:id", (req, res) => {
 	);
 });
 
+router.get("/agregar", (req, res) => {
+	// let { name, price, category_id } = req.body;
+	res.render("añadirProducto.pug")
+})
+
 router.post("/create", (req, res) => {
-	let { name, price, stock, category_id } = req.body;
+	let { name, price, category_id } = req.body;
 	mySqlConnection.query(
 		"insert into `Products` (`name`, `price`, `category_id`) values (?, ?, ?)",
 		[name, price, category_id],
