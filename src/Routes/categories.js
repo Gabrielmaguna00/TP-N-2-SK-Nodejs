@@ -13,19 +13,31 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/create", (req, res) => {
-  let { id, name } = req.body;
+router.get("/:id", (req, res) => {
   mySqlConnection.query(
-    "INSERT INTO `categories`(`id`, `name`) VALUES (?, ?, ? )",
-    [id, name],
+    "select * from Categories where id = ?",
+    [req.params.id],
     (err, rows, fields) => {
       if (err) {
         console.log("Algo salio mal" + err);
       } else {
-        res.send("Orden cargada correctamente.");
+        res.json(rows[0]);
       }
     }
   );
+});
+
+router.post("/create", (req, res) => {
+  let { name } = req.body;
+  console.log(name);
+  const query = "call addOrEdditCategories (?, ?)";
+  mySqlConnection.query(query, [0, name], (err, rows, fields) => {
+    if (err) {
+      console.log("Algo salio mal" + err);
+    } else {
+      res.send("Orden cargada correctamente.");
+    }
+  });
 });
 
 module.exports = router;
