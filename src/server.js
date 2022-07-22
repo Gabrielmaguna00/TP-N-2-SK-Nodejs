@@ -3,8 +3,11 @@ const app = express();
 const mysql = require("mysql");
 const morgan = require("morgan");
 const path = require("path");
+const pedidosRoute = require("./Routes/orders");
 
 app.engine("html", require("pug").renderFile);
+
+app.use("/pedidos", pedidosRoute);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
