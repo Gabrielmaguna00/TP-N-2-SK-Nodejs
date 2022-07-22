@@ -4,6 +4,9 @@ const mysql = require("mysql");
 const morgan = require("morgan");
 const path = require("path");
 const pedidosRoute = require("./Routes/orders");
+const stocks = require("./Routes/Stock");
+const staff = require("./Routes/staff");
+const position = require("./Routes/position");
 
 app.engine("html", require("pug").renderFile);
 
@@ -24,6 +27,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.render("index.pug");
 });
+app.use("/", stocks);
 
 app.listen(app.get("port"), () => {
   console.log("Servidor en el puerto 3000"), app.get("port");

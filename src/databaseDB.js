@@ -1,9 +1,10 @@
 const mysql = require("mysql");
+// const {pass} = process.env
 
 const mySqlConnection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
+  password: "gabi004",
   database: "latablita",
 });
 
