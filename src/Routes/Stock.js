@@ -8,6 +8,7 @@ router.get("/", (req, res) => {
   mySqlConnection.query(query, (err, rows, fields) => {
     if (err) {
       console.log(err);
+      res.status(404).send("No se pudo mostrar la tabla de la base de datos!");
     } else {
       res.json(rows);
     }
@@ -36,25 +37,28 @@ router.get("/products/:id", (req, res) => {
 router.post("/", (req, res) => {
   const { quantity, store_id, product_id } = req.body;
   const query = "select * from stocks where product_id = ? and store_id = ?";
-  const queryCall = "call addOrEdditStocks (?, ?, ?, ?)";
   mySqlConnection.query(query, [product_id, store_id], (err, rows, fields) => {
     if (err) {
       console.log(err);
-    }
-    if (rows.length) {
-      res.send("El dato a postear ya existe: "); //como enviar un msj y el json del dato que ya existe?
+      res.status(404).send(err);
     } else {
-      mySqlConnection.query(
-        queryCall,
-        [0, store_id, product_id, quantity],
-        (err, rows, fields) => {
-          if (err) {
-            console.log(err);
-          } else {
-            res.send("Creado con exito!");
+      if (rows.length) {
+        res.send("El dato a postear ya existe!! "); //como enviar un msj y el json del dato que ya existe?
+      } else {
+        const queryCall = "call addOrEdditStocks (?, ?, ?, ?)";
+        mySqlConnection.query(
+          queryCall,
+          [0, store_id, product_id, quantity],
+          (err, rows, fields) => {
+            if (err) {
+              console.log(err);
+              res.status(404).send(err);
+            } else {
+              res.send("Creado con exito!");
+            }
           }
-        }
-      );
+        );
+      }
     }
   });
 });

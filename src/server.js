@@ -16,7 +16,9 @@ const position = require("./Routes/position");
 app.set("port", process.env.PORT || 3000);
 app.use(morgan("tiny"));
 app.use(express.json());
-app.use("/", stocks);
+app.use("/stock", stocks);
+app.use("/staff", staff);
+app.use("/", position)
 
 app.listen(app.get("port"), () => {
   console.log("Servidor en el puerto 3000"), app.get("port");
