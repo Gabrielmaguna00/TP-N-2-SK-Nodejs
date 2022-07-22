@@ -1,19 +1,18 @@
-const mysql = require('mysql')
+const mysql = require("mysql");
 
 const mySqlConnection = mysql.createConnection({
 	host: "localhost",
 	user: "root",
 	password: "",
-	database: "latablita"
-})
+	database: "latablita",
+});
 
 mySqlConnection.connect((err) => {
-	if(err) {
-		console.log(err)
+	if (err) {
+		console.log(err);
+	} else {
+		console.log("Entraste a la matrix");
 	}
-	else {
-		console.log("Entraste a la matrix")
-	}
-})
+});
 
-module.exports = mySqlConnection
+module.exports = mySqlConnection;

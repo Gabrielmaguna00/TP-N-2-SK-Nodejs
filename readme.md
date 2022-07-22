@@ -8,7 +8,7 @@
 - ### C)
 	- Create Database: Utilizamos este comando para crear una base de datos. 
 	- Drop Database: Utilizamos este comando para eliminar una base de datos.
-	- Use Database: Utilizaoms este comando para seleccionar y usar una base de datos.
+	- Use Database: Utilizamos este comando para seleccionar y usar una base de datos.
 	- Create Table: Utilizamos este comando para crear una tabla dentro de una base de datos.
 	- Drop Table: Utilizamos este comando para eliminar una tabla de una base de datos.
 	- Alter Table: Utilizamos este comando para realizar modificaciones en una tabla dentro de una base de datos.
@@ -18,4 +18,3 @@
 	- Delete: Utilizamos este comando para eliminar datos presentes dentro de una tabla. 
 	- Replace: Utilizamos este comando para añadir, cambiar o reemplazar datos nuevos o ya presentes dentro de una tabla.
 	- Truncate: Utilizamos este comando para vaciar los datos dentro de una tabla.
-	

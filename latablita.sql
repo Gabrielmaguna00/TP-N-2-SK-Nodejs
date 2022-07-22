@@ -109,3 +109,4 @@ insert into Products(name, price, category_id ) values
 ("Lata de Coca-Cola", 250, 1),
 ("Lata de Sprite", 250, 1)
 ;
+

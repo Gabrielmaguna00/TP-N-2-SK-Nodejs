@@ -8,8 +8,7 @@ router.get("/", (req, res) => {
 		if (err) {
 			console.log("Algo salio mal" + err);
 		} else {
-			// res.json(rows);
-			res.render("productos.pug", { rows })
+			res.render("productos.pug", { rows });
 		}
 	});
 });
@@ -22,17 +21,15 @@ router.get("/:id", (req, res) => {
 			if (err) {
 				console.log("Algo salio mal" + err);
 			} else {
-				// res.json(rows[0]);
-				res.render("productos.pug", { rows })
+				res.render("productos.pug", { rows });
 			}
 		}
 	);
 });
 
 router.get("/agregar", (req, res) => {
-	// let { name, price, category_id } = req.body;
-	res.render("añadirProducto.pug")
-})
+	res.render("sumProducto.pug", {rows});
+});
 
 router.post("/create", (req, res) => {
 	let { name, price, category_id } = req.body;
