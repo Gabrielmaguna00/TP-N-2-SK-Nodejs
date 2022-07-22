@@ -3,12 +3,20 @@ const app = express();
 const morgan = require("morgan");
 const path = require("path");
 
-const productosRoute = require("./Routes/products");
-const stocksRoute = require("./Routes/stock");
-const negociosRoute = require("./Routes/stores");
 const pedidosRoute = require("./Routes/orders");
-const positionRoute = require("./Routes/position");
-const staffRoute = require("./Routes/staff");
+const categoriesRoute = require("./Routes/categories");
+
+app.engine("html", require("pug").renderFile);
+
+app.use("/pedidos", pedidosRoute);
+app.use("/categories", categoriesRoute);
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
+
+app.use(express.json());
+app.use(express.static("./views"));
+// app.use(express.static("./css"));
 
 app.set("port", process.env.PORT || 3000);
 app.use(morgan("tiny"));
