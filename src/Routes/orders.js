@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const mySqlConnection = require("../databaseDB");
+const mySqlConnection = require("../database");
 
 router.get("/", (req, res) => {
   mySqlConnection.query("select * from Orders", (err, rows, fields) => {
@@ -30,7 +30,7 @@ router.get("/:id", (req, res) => {
 router.post("/create", (req, res) => {
   let { status, store_id, staff_id, customer_id } = req.body;
   mySqlConnection.query(
-    "INSERT INTO `orders`(`status`, `store_id`, `staff_id`, `customer_id`) VALUES (?, ?, ? )",
+    "INSERT INTO `Orders`(`status`, `store_id`, `staff_id`, `customer_id`) VALUES (?, ?, ? )",
     [status, store_id, staff_id, customer_id],
     (err, rows, fields) => {
       if (err) {

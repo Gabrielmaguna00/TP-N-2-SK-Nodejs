@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express();
 
-const mySqlConnection = require("../databaseDB");
+const mySqlConnection = require("../database");
 
 router.get("/", (req, res) => {
   const query = "select * from Positions";

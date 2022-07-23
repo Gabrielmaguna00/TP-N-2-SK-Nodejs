@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express();
 
-const mySqlConnection = require("../databaseDB");
+const mySqlConnection = require("../database");
 
 router.get("/", (req, res) => {
-  const query = "select * from staff";
+  const query = "select * from Staff";
   mySqlConnection.query(query, (err, rows, fields) => {
     if (err) {
       console.log(err);
@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/store/:id", (req, res) => {
-  const query = "select * from staff where store_id = (?)";
+  const query = "select * from Staff where store_id = (?)";
   mySqlConnection.query(query, [req.params.id], (err, rows, fields) => {
     if (err) {
       console.log(err);
@@ -34,7 +34,7 @@ router.get("/store/:id", (req, res) => {
 });
 
 router.get("/position/:id", (req, res) => {
-  const query = "select * from staff where position_id = (?)";
+  const query = "select * from Staff where position_id = (?)";
   mySqlConnection.query(query, [req.params.id], (err, rows, fields) => {
     if (err) {
       console.log(err);
