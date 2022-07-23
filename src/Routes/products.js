@@ -27,10 +27,6 @@ router.get("/:id", (req, res) => {
 	);
 });
 
-router.get("/agregar", (req, res) => {
-	res.render("sumProducto.pug", {rows});
-});
-
 router.post("/create", (req, res) => {
 	let { name, price, category_id } = req.body;
 	mySqlConnection.query(

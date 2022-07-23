@@ -30,11 +30,11 @@ app.set("view engine", "pug");
 app.use(express.static("./views"));
 
 app.get("/", (req, res) => {
-	res.render("index.pug");
+  res.render("index.pug");
 });
 app.get("*", (req, res) => {
-	res.render("404.pug");
+  res.render("404.pug");
 });
 app.listen(app.get("port"), () => {
-	console.log("Servidor en el puerto 3000"), app.get("port");
+  console.log("Servidor en el puerto 3000"), app.get("port");
 });
