@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
-const mysqlConnection = require("../database");
+const mySqlConnection = require("../database");
 
 router.get("/", (req, res) => {
   const query =
     "select Stocks.id as stocks_id, Stocks.quantity, Stocks.store_id, Stocks.product_id, Stores.id as store_id, Stores.name as store_name, Products.id as product_id, Products.name as product_name from Stocks inner join Stores on Stocks.store_id = Stores.id inner join Products on Stocks.product_id = Products.id;";
-  mysqlConnection.query(query, (err, rows, fields) => {
+    mySqlConnection.query(query, (err, rows, fields) => {
     if (err) {
       console.log(err);
       res.status(404).send("No se pudo mostrar la tabla de la base de datos!");
@@ -18,13 +18,15 @@ router.get("/", (req, res) => {
 });
 router.get("/stores/:name", (req, res) => {
   const query =
-  "select stocks.product_id, store_id, stocks.quantity, stores.id as store_id, stores.name as store_name, products.name as product_name, products.id From stocks inner join stores on stocks.store_id = stores.id inner join products on stocks.product_id = products.id where stores.name = (?)  ";
+    "select stocks.product_id, store_id, stocks.quantity, stores.id as store_id, stores.name as store_name, products.name as product_name, products.id From stocks inner join stores on stocks.store_id = stores.id inner join products on stocks.product_id = products.id where stores.name = (?)  ";
   mysqlConnection.query(query, [req.params.name], (err, rows, fields) => {
     if (err) {
       console.log(err);
       res
         .status(404)
-        .send(`No se encontro el stock del store con el nombre: ${req.params.name}`);
+        .send(
+          `No se encontro el stock del store con el nombre: ${req.params.name}`
+        );
     } else {
       // res.json(rows)
       res.render("stock.pug", { rows });

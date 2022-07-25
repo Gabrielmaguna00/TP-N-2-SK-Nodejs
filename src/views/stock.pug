@@ -33,6 +33,8 @@ body.container.bg-light
 				a.nav-link(aria-current='page', href='/clientes') Clientes
 
 	h1.text-center.my-4.text-primary Bienvenido a La Tablita
+	h2.text-primary.mt-4 Mostrando Stocks
+  
 	if rows.length === 0 
 		h1.alert-danger.rounded.p-2 No hay stock cargado en la base de datos
 	else if ((rows[0].store_id && rows[0].product_id))
