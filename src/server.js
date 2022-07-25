@@ -9,6 +9,7 @@ const negociosRoute = require("./Routes/stores");
 const pedidosRoute = require("./Routes/orders");
 const positionRoute = require("./Routes/position");
 const staffRoute = require("./Routes/staff");
+const clientesRoute = require("./Routes/customers");
 
 app.set("port", process.env.PORT || 3000);
 app.use(morgan("tiny"));
@@ -23,6 +24,7 @@ app.use("/negocios", negociosRoute);
 app.use("/pedidos", pedidosRoute);
 app.use("/cargos", positionRoute);
 app.use("/empleados", staffRoute);
+app.use("/clientes", clientesRoute);
 
 // Motor de plantillas
 app.set("views", path.join(__dirname, "views"));
