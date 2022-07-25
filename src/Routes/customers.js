@@ -9,7 +9,6 @@ router.get("/", (req, res) => {
     if (err) {
       console.log("Algo salio mal" + err);
     } else {
-      // res.json(rows);
       res.render("clientes", { rows });
     }
   });
