@@ -30,17 +30,27 @@ body.container.bg-light
 				a.nav-link(aria-current='page', href='/cargos') Cargos
 
 	h1.text-center.my-4.text-primary Bienvenido a La Tablita
-
-  if rows.length == 0
-			h1.alert-danger.rounded.p-2 No hay tiendas cargadas en la base de datos
-	else
+	if rows.length === 0 
+		h1.alert-danger.rounded.p-2 No hay stock cargado en la base de datos
+	else if ((rows[0].store_id && rows[0].product_id))
 		table.table
 			thead
-				th(scope="col") Stock
-				th(scope="col")  Productos
+				th(scope="col")  Tienda
+				th(scope="col")  Producto
+				th(scope="col")  Stock
 			each row in rows
 				tbody
-					th(scope="row")= row.stock
-					td= row.product
+					th(scope="row")= row.store_name
+					td= row.product_name
+					td= row.quantity
+	else 
+		table.table
+			thead
+				th(scope="col")  Producto
+				th(scope="col")  Stock
+			each row in rows
+				tbody
+					th(scope="row")= row.product_name
+					td= row.quantity
 
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p', crossorigin='anonymous')

@@ -10,11 +10,10 @@ const pedidosRoute = require("./Routes/orders");
 const positionRoute = require("./Routes/position");
 const staffRoute = require("./Routes/staff");
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("port", process.env.PORT || 3000);
 app.use(morgan("tiny"));
-
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Rutas
