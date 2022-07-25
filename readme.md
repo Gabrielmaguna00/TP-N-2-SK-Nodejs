@@ -1,3 +1,10 @@
+# Autores:
+## Gabriel Maguna, Oscar Torres y Claudio Juan Francisco Sepulveda
+
+--- 
+
+## Respuestas del trabajo
+
 ## 3 
 - ### A) 
 	Las bases de datos son un conjunto de información perteneciente a un mismo contexto. Esta se organiza de forma que permita su rapida recuperación, transmisión o análisis. Existen muchas formas de bases de datos, como una biblioteca, un registro civil con archivos fisicos, o los datos de usuarios de una empresa de internet. 
