@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express();
 
-const mySqlConnection = require("../databaseDB");
+const mySqlConnection = require("../database");
 
 router.get("/", (req, res) => {
-  const query = "select * from stocks";
+  const query = "select * from Stocks";
   mySqlConnection.query(query, (err, rows, fields) => {
     if (err) {
       console.log(err);
@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
   });
 });
 router.get("/stores/:id", (req, res) => {
-  const query = "select * from stocks where store_id = ?";
+  const query = "select * from Stocks where store_id = ?";
   mySqlConnection.query(query, [req.params.id], (err, rows, fields) => {
     if (err) {
       console.log(err);
@@ -28,7 +28,7 @@ router.get("/stores/:id", (req, res) => {
   });
 });
 router.get("/products/:id", (req, res) => {
-  const query = "select * from stocks where product_id = ?";
+  const query = "select * from Stocks where product_id = ?";
   mySqlConnection.query(query, [req.params.id], (err, rows, fields) => {
     if (err) {
       console.log(err);
@@ -42,7 +42,7 @@ router.get("/products/:id", (req, res) => {
 });
 router.post("/", (req, res) => {
   const { quantity, store_id, product_id } = req.body;
-  const query = "select * from stocks where product_id = ? and store_id = ?";
+  const query = "select * from Stocks where product_id = ? and store_id = ?";
   mySqlConnection.query(query, [product_id, store_id], (err, rows, fields) => {
     if (err) {
       console.log(err);
@@ -51,7 +51,7 @@ router.post("/", (req, res) => {
       if (rows.length) {
         res.send("El dato a postear ya existe!! "); //como enviar un msj y el json del dato que ya existe?
       } else {
-        const queryCall = "call addOrEdditStocks (?, ?, ?, ?)";
+        const queryCall = "call addOrEdditstocks (?, ?, ?, ?)";
         mySqlConnection.query(
           queryCall,
           [0, store_id, product_id, quantity],
@@ -71,7 +71,7 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res) => {
   //que es mejor practica, poner id y cantidad en params o id en params y cantidad en body?
   const { quantity, store_id, product_id } = req.body;
-  const query = "call addOrEdditStocks (?, ?, ?, ?)";
+  const query = "call addOrEdditstocks (?, ?, ?, ?)";
   mySqlConnection.query(
     query,
     [req.params.id, store_id, product_id, quantity],

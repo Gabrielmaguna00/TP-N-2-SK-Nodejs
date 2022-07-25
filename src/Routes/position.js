@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express();
 
-const mySqlConnection = require("../databaseDB");
+const mySqlConnection = require("../database");
 
 router.get("/", (req, res) => {
-  const query = "select * from positions";
+  const query = "select * from Positions";
   mySqlConnection.query(query, (err, rows, fields) => {
     if (err) {
       console.log(err);
@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 router.post("/create", (req, res) => {
   const { name } = req.body;
   console.log(name)
-  const query = "select * from positions where name = ?";
+  const query = "select * from Positions where name = ?";
   mySqlConnection.query(query, [name], (err, rows, fields) => {
     if (err) {
       console.log(err);
@@ -28,7 +28,7 @@ router.post("/create", (req, res) => {
       if (rows.length) {
         res.send("El puesto a crear ya existe! ");
       } else {
-        const queryInsert = "INSERT INTO positions (name) VALUES (?)";
+        const queryInsert = "INSERT INTO Positions (name) VALUES (?)";
         mySqlConnection.query(queryInsert, [name], (err, rows, fields) => {
           if (err) {
             console.log(err);

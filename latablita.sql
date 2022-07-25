@@ -97,3 +97,16 @@ insert into Staff(name, store_id, position_id) values
 ("Camila", 1, 2),
 ("Vicente", 4, 4)
 ;
+
+insert into Categories(name) values 
+("Bebidas no alcoholicas"),
+("Bebidas alcoholicas"),
+("Fiambres"),
+("Quesos")
+;
+
+insert into Products(name, price, category_id ) values 
+("Lata de Coca-Cola", 250, 1),
+("Lata de Sprite", 250, 1)
+;
+
