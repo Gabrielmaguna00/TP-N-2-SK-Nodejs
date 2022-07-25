@@ -2,13 +2,14 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const path = require("path");
-
+// Importar rutas
 const productosRoute = require("./Routes/products");
 const stocksRoute = require("./Routes/stock");
 const negociosRoute = require("./Routes/stores");
 const pedidosRoute = require("./Routes/orders");
 const positionRoute = require("./Routes/position");
 const staffRoute = require("./Routes/staff");
+const clientesRoute = require("./Routes/customers");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -23,6 +24,7 @@ app.use("/negocios", negociosRoute);
 app.use("/pedidos", pedidosRoute);
 app.use("/cargos", positionRoute);
 app.use("/empleados", staffRoute);
+app.use("/clientes", clientesRoute);
 
 // Motor de plantillas
 app.set("views", path.join(__dirname, "views"));

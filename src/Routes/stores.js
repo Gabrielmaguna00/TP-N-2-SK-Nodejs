@@ -14,8 +14,9 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:name", (req, res) => {
+  const query = "select Stores.name as store_name, Stores.id, Staff.store_id, Staff.name From Stores inner join Staff on Stores.id = Staff.store_id where Stores.name = (?)"
 	mySqlConnection.query(
-		"select * from Stores where name = ?",
+		query,
 		[req.params.name],
 		(err, rows, fields) => {
 			if (err) {

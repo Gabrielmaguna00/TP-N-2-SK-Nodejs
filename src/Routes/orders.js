@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     if (err) {
       console.log("Algo salio mal" + err);
     } else {
-      res.json(rows);
+      res.render("orders", { rows });
     }
   });
 });
@@ -21,7 +21,7 @@ router.get("/:id", (req, res) => {
       if (err) {
         console.log("Algo salio mal" + err);
       } else {
-        res.json(rows[0]);
+        res.render("orders", { rows })
       }
     }
   );

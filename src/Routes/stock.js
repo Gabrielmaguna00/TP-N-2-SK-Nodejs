@@ -5,7 +5,7 @@ const mysqlConnection = require("../database");
 
 router.get("/", (req, res) => {
   const query =
-    "select stocks.id as stocks_id, stocks.quantity, stocks.store_id, stocks.product_id, stores.id as store_id, stores.name as store_name, products.id as product_id, products.name as product_name from stocks inner join stores on stocks.store_id = stores.id inner join products on stocks.product_id = products.id;";
+    "select Stocks.id as stocks_id, Stocks.quantity, Stocks.store_id, Stocks.product_id, Stores.id as store_id, Stores.name as store_name, Products.id as product_id, Products.name as product_name from Stocks inner join Stores on Stocks.store_id = Stores.id inner join Products on Stocks.product_id = Products.id;";
   mysqlConnection.query(query, (err, rows, fields) => {
     if (err) {
       console.log(err);

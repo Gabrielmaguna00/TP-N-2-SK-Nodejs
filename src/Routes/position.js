@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express();
+const router = express.Router();
 
 const mySqlConnection = require("../database");
 
@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
       console.log(err);
       res.status(404).send("No se pudo mostrar la tabla de la base de datos!");
     } else {
-      res.json(rows);
+      res.render("cargos", { rows });
     }
   });
 });
@@ -34,7 +34,7 @@ router.post("/create", (req, res) => {
             console.log(err);
             res.status(404).send(err);
           } else {
-            res.send("Puesto creado con exito!")
+            res.send("Puesto creado con exito!");
           }
         });
       }
