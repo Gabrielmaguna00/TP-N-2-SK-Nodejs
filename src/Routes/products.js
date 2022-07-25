@@ -35,7 +35,7 @@ router.post("/create", (req, res) => {
       if (err) {
         console.log("Algo salio mal" + err);
       } else {
-        res.send("Producto cargado correctamente.");
+        res.send("Orden cargada correctamente.");
       }
     }
   );
