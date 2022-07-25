@@ -22,11 +22,12 @@
 
 ## 4 
   - Primero levantamos el servidor con express con los comandos iniciales vistos durante el curso.
-  - Creamos la base de datos con la querys en el archivo latablita.sql
+  - Creamos la base de datos con los comandos en el archivo latablita.sql .
+  - Insertamos datos en la base de datos con los inserts en el archivo inserts.sql .
   - Definimos los limites de las rutas y repartimos tareas.
   - Comenzamos a desarrollar las rutas.
   - Testeamos inicialmente la ruta productos.
-  - Definimos procedimientos para almacenar en la base de datos.
+  - Definimos procedimientos para almacenar en la base de datos, estos se encuentran en el archivo procedimientos.sql .
   - Una vez realizada los rutas, comenzamos a integrar la visualizacion con Pug.
   - Configuramos las tablas correspondientes a cada ruta en archivos individuales.
   - Creamos una pagina 404 en caso de acceder a una ruta no existente.
