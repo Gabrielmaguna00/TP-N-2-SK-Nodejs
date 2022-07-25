@@ -19,6 +19,9 @@ router.get("/stores/:id", (req, res) => {
   mySqlConnection.query(query, [req.params.id], (err, rows, fields) => {
     if (err) {
       console.log(err);
+      res
+        .status(404)
+        .send(`No se encontro el stock del store con id: ${req.params.id}`);
     } else {
       res.json(rows);
     }
@@ -29,6 +32,9 @@ router.get("/products/:id", (req, res) => {
   mySqlConnection.query(query, [req.params.id], (err, rows, fields) => {
     if (err) {
       console.log(err);
+      res
+        .status(404)
+        .send(`No se encontro el stock del producto con id: ${req.params.id}`);
     } else {
       res.json(rows);
     }
@@ -72,6 +78,7 @@ router.put("/:id", (req, res) => {
     (err, rows, fields) => {
       if (err) {
         console.log(err);
+        res.status(404).send("No se logro completar el edit");
       } else {
         res.json(`El dato con id: ${req.params.id} fue editado con exito!`);
       }
