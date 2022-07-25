@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express();
+const router = express.Router();
 
 const mySqlConnection = require("../database");
 
@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
       console.log(err);
       res.status(404).send("No se pudo mostrar la tabla de la base de datos!");
     } else {
-      res.json(rows);
+      res.render("staff.pug", { rows });
     }
   });
 });
@@ -27,7 +27,7 @@ router.get("/store/:id", (req, res) => {
       if (rows.length === 0) {
         res.send("No existe el dato a buscar!");
       } else {
-        res.json(rows);
+        res.render("staff.pug", { rows });
       }
     }
   });
@@ -45,7 +45,7 @@ router.get("/position/:id", (req, res) => {
       if (rows.length === 0) {
         res.send("No existe el dato a buscar!");
       } else {
-        res.json(rows);
+        res.render("staff.pug", { rows });
       }
     }
   });

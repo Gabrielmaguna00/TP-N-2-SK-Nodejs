@@ -14,14 +14,16 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:name", (req, res) => {
+  const query = "select Stores.name as Store_name, Stores.id, Staff.store_id, Staff.name From Stores inner join Staff on Stores.id = Staff.store_id where Stores.Store_name = (?)"
 	mySqlConnection.query(
-		"select * from Stores where name = ?",
+		query,
 		[req.params.name],
 		(err, rows, fields) => {
 			if (err) {
 				console.log("Algo salio mal" + err);
 			} else {
-				res.render("tiendas.pug", { rows });
+        res.json(rows)
+				// res.render("tiendas.pug", { rows }, req.params.id);
 			}
 		}
 	);

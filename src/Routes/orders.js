@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
       console.log("Algo salio mal" + err);
     } else {
       res.json(rows);
+      res.render("orders", { rows });
     }
   });
 });
