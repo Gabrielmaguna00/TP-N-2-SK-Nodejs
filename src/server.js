@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const path = require("path");
-
+// Importar rutas
 const productosRoute = require("./Routes/products");
 const stocksRoute = require("./Routes/stock");
 const negociosRoute = require("./Routes/stores");

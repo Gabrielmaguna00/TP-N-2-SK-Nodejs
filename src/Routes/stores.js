@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:name", (req, res) => {
-  const query = "select Stores.name as Store_name, Stores.id, Staff.store_id, Staff.name From Stores inner join Staff on Stores.id = Staff.store_id where Stores.Store_name = (?)"
+  const query = "select Stores.name as store_name, Stores.id, Staff.store_id, Staff.name From Stores inner join Staff on Stores.id = Staff.store_id where Stores.name = (?)"
 	mySqlConnection.query(
 		query,
 		[req.params.name],
@@ -22,8 +22,7 @@ router.get("/:name", (req, res) => {
 			if (err) {
 				console.log("Algo salio mal" + err);
 			} else {
-        res.json(rows)
-				// res.render("tiendas.pug", { rows }, req.params.id);
+				res.render("tiendas.pug", { rows });
 			}
 		}
 	);
