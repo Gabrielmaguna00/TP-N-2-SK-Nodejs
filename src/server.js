@@ -8,12 +8,14 @@ app.use(express.json());
 const pedidosRoute = require("./Routes/orders");
 const categoriesRoute = require("./Routes/categories");
 const productosRoute = require("./Routes/products");
+const cargosRoute = require("./Routes/position");
 
 app.engine("html", require("pug").renderFile);
 
 app.use("/pedidos", pedidosRoute);
 app.use("/categories", categoriesRoute);
 app.use("/productos", productosRoute);
+app.use("/cargos", cargosRoute);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
